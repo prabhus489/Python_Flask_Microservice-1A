@@ -1,4 +1,4 @@
-from helloflaskapp import app
+from . import app
 
 @app.route('/')
 @app.route('/index')
