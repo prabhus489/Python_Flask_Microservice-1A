@@ -109,9 +109,9 @@ def sendin(db=connect()):
 @app.route('/')
 @app.route('/index')
 def index():
-    return f"Welcome to this Microservice-1 Flask Application!, "
+    return f"Welcome to this Microservice-2 Flask Application!, "
  
 
 #app.run(host='localhost', port=5000) 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=6000)
