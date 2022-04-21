@@ -43,6 +43,16 @@ def connect():
 @app.route('/shareddbform') 
 def shareddbform():
     return render_template('shareddbform.html') 
+
+
+@app.route('/customerform') 
+def customerform():
+    return render_template('customerform.html') 
+
+
+@app.route('/marketform') 
+def marketform():
+    return render_template('marketform.html') 
  
 @app.route('/login', methods = ['POST', 'GET']) 
 def login(db=connect()):
@@ -60,6 +70,39 @@ def login(db=connect()):
         cur.connection.commit()
         cur.close()
     return f"Done!!" 
+
+@app.route('/gatein', methods = ['POST', 'GET']) 
+def gatein(db=connect()):
+    if request.method == 'GET':
+        return "Login via the login Form" 
+    if request.method == 'POST':
+        firstname = request.form['firstname']
+        lastname = request.form['lastname'] 
+        country = request.form['country'] 
+        subject = request.form['subject'] 
+        cur = db.cursor() 
+        cur.execute(''' INSERT INTO "microservice1A".customerfeedback_table VALUES(%s,%s,%s,%s)''',(firstname, lastname, 
+        country, subject)) 
+        cur.connection.commit()
+        cur.close()
+    return f"Customer Feedback Registration Done!!" 
+
+
+@app.route('/sendin', methods = ['POST', 'GET']) 
+def sendin(db=connect()):
+    if request.method == 'GET':
+        return "Login via the login Form" 
+    if request.method == 'POST':
+        usrnm = request.form['usrnm'] 
+        email = request.form['email'] 
+        psw = request.form['psw'] 
+        cur = db.cursor() 
+        cur.execute(''' INSERT INTO "microservice1A".marketfeedbacktable VALUES(%s,%s,%s)''',(usrnm, email, 
+        psw)) 
+        cur.connection.commit()
+        cur.close()
+    return f"Marketing Feedback Registration Done!!" 
  
  
+
 app.run(host='localhost', port=5000) 
