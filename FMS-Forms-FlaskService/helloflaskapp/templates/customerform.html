@@ -9,6 +9,31 @@ input[type=text], select, textarea{
   resize: vertical;
 }
 
+input[type=int], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+input[type=number], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+input[type=bigint], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
 /* Style the label to display next to the inputs */
 label {
   padding: 12px 12px 12px 0;
@@ -66,6 +91,14 @@ input[type=submit] {
 <div class="container">
     <form action="/gatein" method = "POST">
       <h2>Customer Feedback Form</h2>
+      <div class="row">
+        <div class="col-25">
+          <label for="id">ID</label>
+        </div>
+        <div class="col-75">
+          <input type="bigint" id="id" name="id" placeholder=" your ID num..">
+        </div>
+      </div>
       <div class="row">
         <div class="col-25">
           <label for="fname">First Name</label>

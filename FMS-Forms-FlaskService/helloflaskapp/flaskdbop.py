@@ -52,7 +52,7 @@ def login(db=connect()):
         name = request.form['name']
         age = request.form['age']
         cur = db.cursor() 
-        print("DB connection is here", cur)
+        print(cur)
         cur.execute(''' INSERT INTO info_table VALUES(%s,%s)''',(name,age)) 
         cur.connection.commit() 
         cur.close()

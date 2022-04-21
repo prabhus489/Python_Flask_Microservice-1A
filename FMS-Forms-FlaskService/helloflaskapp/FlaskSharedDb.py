@@ -76,12 +76,13 @@ def gatein(db=connect()):
     if request.method == 'GET':
         return "Login via the login Form" 
     if request.method == 'POST':
+        id = request.form['id']
         firstname = request.form['firstname']
         lastname = request.form['lastname'] 
         country = request.form['country'] 
         subject = request.form['subject'] 
         cur = db.cursor() 
-        cur.execute(''' INSERT INTO "microservice1A".customerfeedback_table VALUES(%s,%s,%s,%s)''',(firstname, lastname, 
+        cur.execute(''' INSERT INTO hellodjangoapp_customer VALUES(%s,%s,%s,%s,%s)''',(id, firstname, lastname, 
         country, subject)) 
         cur.connection.commit()
         cur.close()
@@ -93,11 +94,12 @@ def sendin(db=connect()):
     if request.method == 'GET':
         return "Login via the login Form" 
     if request.method == 'POST':
+        id = request.form['id']
         usrnm = request.form['usrnm'] 
         email = request.form['email'] 
         psw = request.form['psw'] 
         cur = db.cursor() 
-        cur.execute(''' INSERT INTO "microservice1A".marketfeedbacktable VALUES(%s,%s,%s)''',(usrnm, email, 
+        cur.execute(''' INSERT INTO hellodjangoapp_market VALUES(%s,%s,%s,%s)''',(id, usrnm, email, 
         psw)) 
         cur.connection.commit()
         cur.close()
